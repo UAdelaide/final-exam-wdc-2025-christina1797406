@@ -151,20 +151,6 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-10 10:45:00', 40, 'Ascot Park', 'cancelled')
         `);
     }
-
-
-    // Insert WalkRatings
-    const [row_rating] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
-    if (row_rating[0].count === 0) {
-        await db.execute(`
-        INSERT INTO WalkRatings (walker_id, rating) VALUES
-        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'bobwalker'), 5),
-        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'alex'), 1),
-        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'alex'), 3),
-        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'bobwalker'), 10),
-        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'bobwalker'), 15)
-        `);
-    }
     } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
