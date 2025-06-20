@@ -205,7 +205,7 @@ app.get('/api/walkers/summary', async (req, res) => {
 
 
       SELECT Users.username FROM Users
-      INNER JOIN WalkRatings ON Users.user_id = WalkRatings.
+      INNER JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
       SELECT COUNT(*) AS total_ratings FROM WalkRequests
       SELECT AVE(total_ratings) AS average_rating
 
