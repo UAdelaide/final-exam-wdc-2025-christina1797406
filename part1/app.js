@@ -183,17 +183,17 @@ app.get('/api/dogs', async (req, res) => {
   }
 });
 
+// Route 2 ('/api/walkrequests/open')
+app.get('/api/walkrequests/open', async (req, res) => {
+    try {
+      const [rows] = await db.execute('SELECT * FROM Dogs');
 
-// // Route 2 ('/api/walkrequests/open')
-// app.get('/api/walkrequests/open', async (req, res) => {
-//     try {
-//       const [rows] = await db.execute('SELECT * FROM Dogs');
-
-//       res.json(rows);
-//     } catch (err) {
-//       res.status(500).json({ error: 'Failed to open walk requests' });
-//     }
-//   });
+      res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to open walk requests' });
+    }
+  });
 
 
 // // Route 3 ('/api/walkers/summary')
