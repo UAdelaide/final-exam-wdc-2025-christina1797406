@@ -8,7 +8,7 @@ var db = require('../database');
     const connection = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
-      password: '' // Set your MySQL root password
+      password: ''
     });
 
     // Create the database if it doesn't exist
@@ -20,7 +20,7 @@ var db = require('../database');
       host: 'localhost',
       user: 'root',
       password: '',
-      database: 'testdb'
+      database: 'DogWalkService'
     });
 
     // Create a table if it doesn't exist
