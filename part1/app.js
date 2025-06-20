@@ -51,18 +51,17 @@ let db;
         password_hash VARCHAR(255) NOT NULL,
         role ENUM('owner', 'walker') NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-    `);
+    );`);
 
     // Dogs
     await db.execute(`
-    CREATE TABLE Dogs (Add commentMore actions
+    CREATE TABLE IF NOT EXISTS Dogs (
         dog_id INT AUTO_INCREMENT PRIMARY KEY,
         owner_id INT NOT NULL,
         name VARCHAR(50) NOT NULL,
         size ENUM('small', 'medium', 'large') NOT NULL,
         FOREIGN KEY (owner_id) REFERENCES Users(user_id)
-    );`)
+    );`);
 
     // Walker
 
