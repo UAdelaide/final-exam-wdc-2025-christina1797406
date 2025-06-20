@@ -55,18 +55,19 @@ let db;
 
     await db.execute(`
     INSERT IGNORE INTO Dogs (name, size, owner_id)
-        VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
-         ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
-        VALUES ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
-        VALUES ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
-        VALUES ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'));
+        VALUES
+        ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
+        ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
+        ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
+        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
+        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'));
     `);
 
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
-        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
-        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-10 10:00:00', 20, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-10 10:00:00', 20, 'Parklands', 'open'),
         VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Happy'), '2025-06-10 10:30:00', 30, 'Ascot Park', 'cancelled'),
         VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-10 10:45:00', 40, 'Ascot Park', 'cancelled');
     `);
