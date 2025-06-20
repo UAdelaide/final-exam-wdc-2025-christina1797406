@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database');
 
-let db;
+
 (async () => {
   try {
     // Connect to MySQL without specifying a database
