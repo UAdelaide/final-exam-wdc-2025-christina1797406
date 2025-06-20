@@ -159,10 +159,10 @@ let db;
         await db.execute(`
         INSERT INTO WalkRatings (walker_id, rating) VALUES
         ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'bobwalker'), 5),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 1),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 3),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 10),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 15)
+        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'alex'), 1),
+        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'alex'), 3),
+        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'bobwalker'), 10),
+        ((SELECT WalkRatings.walker_id FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id WHERE Users.username = 'bobwalker'), 15)
         `);
     }
     } catch (err) {
