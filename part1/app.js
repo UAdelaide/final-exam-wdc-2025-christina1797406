@@ -111,7 +111,9 @@ let db;
     if (rows[0].count === 0) {
         await db.execute(`
         IN
-        `)
+        `);
+    } catch (err) {
+        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err)
     }
     const [rows] = await db.execute(`
     INSERT IGNORE INTO Users (username, email, password_hash, role)
