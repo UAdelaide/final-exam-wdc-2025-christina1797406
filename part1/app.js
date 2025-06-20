@@ -120,8 +120,8 @@ let db;
     }
 
     // Insert Dogs
-    const [row_dogs] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-    if (rows[0].count === 0) {
+    const [row_dog] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (row_dog[0].count === 0) {
         await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
