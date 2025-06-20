@@ -48,7 +48,7 @@ let db;
 
     // Insert tables if database is empty
     await db.execute(`
-    
+    INSERT IGNORE INTO Users (user_i)
     `);
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
     if (rows[0].count === 0) {
