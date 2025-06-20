@@ -91,10 +91,27 @@ app.get('/api/dogs', async (req, res) => {
 });
 
 // Route 2 ('/api/walkrequests/open')
+app.get('/api/dogs', async (req, res) => {
+    try {
+      const [rows] = await db.execute('SELECT * FROM Dogs');
 
+      res.json(rows);
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+  });
 
 
 // Route 3 ('/api/walkers/summary')
+app.get('/api/dogs', async (req, res) => {
+    try {
+      const [rows] = await db.execute('SELECT * FROM Dogs');
+
+      res.json(rows);
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+  });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
