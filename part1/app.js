@@ -204,7 +204,8 @@ app.get('/api/walkers/summary', async (req, res) => {
       SELECT COUNT(*) AS total_ratings FROM WalkRequests
       SELECT AVE(total_ratings) AS average_rating
 
-      SELECT Users.username AS 
+      SELECT Users.username AS walker_username
+      
 
 
 
