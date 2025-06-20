@@ -158,7 +158,7 @@ let db;
     if (row_rating[0].count === 0) {
         await db.execute(`
         INSERT INTO WalkRatings (walker_id, rating) VALUES
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 5),
+        ((SELECT WalkRatings.walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 5),
         ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 1),
         ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 3),
         ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 10),
