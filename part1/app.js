@@ -65,11 +65,11 @@ let db;
     `);
     await db.execute(`
     INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
+    VALUES ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex'));
     `);
     await db.execute(`
     INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
+    VALUES ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry'));
     `);
     await db.execute(`
     INSERT IGNORE INTO Dogs (name, size, owner_id)
