@@ -144,11 +144,11 @@ let db;
     if (row_request[0].count === 0) {
         await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 5),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 1),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 3),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 10),
-        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 15)
+        ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-10 10:00:00', 20, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Happy'), '2025-06-10 10:30:00', 30, 'Ascot Park', 'cancelled'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-10 10:45:00', 40, 'Ascot Park', 'cancelled')
         `);
     }
 
@@ -162,7 +162,7 @@ let db;
         ((SELECT user_id FROM Users WHERE username = 'carol123')),
         ((SELECT user_id FROM Users WHERE username = 'alex')),
         ((SELECT user_id FROM Users WHERE username = 'harry')),
-        ((SELECT user_id FROM Users WHERE username = 'bobwalker'))
+        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
         `);
     }
     } catch (err) {
