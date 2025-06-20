@@ -68,7 +68,7 @@ let db;
         requested_time DATETIME NOT NULL,
         duration_minutes INT NOT NULL,
         location VARCHAR(255) NOT NULL,
-        status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',Add commentMore actions
+        status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
     )
@@ -93,7 +93,7 @@ let db;
     CREATE TABLE WalkRatings (
         rating_id INT AUTO_INCREMENT PRIMARY KEY,
         request_id INT NOT NULL,
-        walker_id INT NOT NULL,Add commentMore actions
+        walker_id INT NOT NULL,
         owner_id INT NOT NULL,
         rating INT CHECK (rating BETWEEN 1 AND 5),
         comments TEXT,
