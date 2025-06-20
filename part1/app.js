@@ -107,7 +107,7 @@ let db;
 
 // Insert tables if database is empty
     // Insert Users
-    await db.execute(`
+    const [rows] = await db.execute(`
     INSERT IGNORE INTO Users (username, email, password_hash, role)
         VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
