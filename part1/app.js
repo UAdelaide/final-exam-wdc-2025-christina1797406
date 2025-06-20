@@ -66,7 +66,7 @@ let db;
     `);
 
     await db.execute(`
-    INSERT IGNORE INTO Users (username, email, password_hash, role)
+    INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner'),
         VALUES ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
         VALUES ('carol123', 'carol@example.com', 'hashed789', 'owner'),
