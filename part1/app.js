@@ -36,7 +36,7 @@ let db;
       database: 'DogWalkService'
     });
 
-// Create tables if it doesn't exist
+// Create tables if they don't exist
     // Users
     await db.execute(`
     CREATE TABLE IF NOT EXISTS Users (
