@@ -124,11 +124,11 @@ let db;
     if (row_dog[0].count === 0) {
         await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
-        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-        ('alex', 'alex@example.com', 'hashed100', 'walker'),
-        ('harry', 'harry@example.com', 'hashed101', 'owner')
+        ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
+        ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
+        ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
+        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
+        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
         `);
     }
 
@@ -136,28 +136,7 @@ let db;
     VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123'))
 
 
-    
-    // Insert Dogs
-    await db.execute(`
-    INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123'));
-    `);
-    await db.execute(`
-    INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123'));
-    `);
-    await db.execute(`
-    INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex'));
-    `);
-    await db.execute(`
-    INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry'));
-    `);
-    await db.execute(`
-    INSERT IGNORE INTO Dogs (name, size, owner_id)
-    VALUES ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'));
-    `);
+
 
     // Insert WalkRequests
     await db.execute(`
