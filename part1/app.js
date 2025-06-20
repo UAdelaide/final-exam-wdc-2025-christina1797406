@@ -46,7 +46,8 @@ let db;
         password_hash VARCHAR(255) NOT NULL,
         role ENUM('owner', 'walker') NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );`);
+    )
+    `);
 
     // Dogs
     await db.execute(`
