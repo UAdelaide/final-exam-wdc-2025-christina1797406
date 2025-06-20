@@ -132,8 +132,18 @@ let db;
         `);
     }
 
-
     // Insert WalkRequests
+    const [row_request] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (row_request[0].count === 0) {
+        await db.execute(`
+        INSERT INTO Users (username, email, password_hash, role) VALUES
+        ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
+        ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
+        ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
+        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
+        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
+        `);
+    }
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open');
