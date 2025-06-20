@@ -196,12 +196,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 app.get('/api/walkers/summary', async (req, res) => {
     try {
       const [rows] = await db.execute(`
-      SELECT WalkRequests.request_id, Dogs.name,
-      WalkRequests.requested_time, WalkRequests.duration_minutes,
-      WalkRequests.location, Users.username FROM (( WalkRequests
-      INNER JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id )
-      INNER JOIN Users ON Dogs.owner_id = Users.user_id )
-      WHERE WalkRequests.status = 'open';
+        
 
 
       SELECT Users.username FROM Users
