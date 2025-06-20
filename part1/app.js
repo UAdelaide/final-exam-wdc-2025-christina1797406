@@ -76,7 +76,7 @@ let db;
         FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
     );`);
 
-    
+    // WalkApplication
 
 // Insert tables if database is empty
     // Insert Users
