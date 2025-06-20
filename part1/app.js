@@ -192,16 +192,16 @@ app.get('/api/walkrequests/open', async (req, res) => {
   });
 
 
-// // Route 3 ('/api/walkers/summary')
-// app.get('/api/walkers/summary', async (req, res) => {
-//     try {
-//       const [rows] = await db.execute('SELECT * FROM Dogs');
+// Route 3 ('/api/walkers/summary')
+app.get('/api/walkers/summary', async (req, res) => {
+    try {
+      const [rows] = await db.execute('SELECT * FROM Dogs');
 
-//       res.json(rows);
-//     } catch (err) {
-//       res.status(500).json({ error: 'Failed to fetch summary of walkers' });
-//     }
-//   });
+      res.json(rows);
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to fetch summary of walkers' });
+    }
+  });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
