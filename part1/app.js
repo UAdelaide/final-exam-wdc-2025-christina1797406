@@ -78,6 +78,9 @@ let db;
 
     // WalkApplication
 
+
+    // WalkRatings
+
 // Insert tables if database is empty
     // Insert Users
     await db.execute(`
