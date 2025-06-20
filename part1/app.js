@@ -73,18 +73,6 @@ let db;
         VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Happy'), '2025-06-10 10:30:00', 30, 'Ascot Park', 'cancelled'),
         VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-10 10:45:00', 40, 'Ascot Park', 'cancelled');
     `);
-  }
-
-  app.
-
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
-    if (rows[0].count === 0) {
-      await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
-      `);
     }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
