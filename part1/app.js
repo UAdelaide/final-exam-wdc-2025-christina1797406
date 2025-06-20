@@ -133,11 +133,6 @@ let db;
     }
 
 
-    VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123'))
-
-
-
-
     // Insert WalkRequests
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
