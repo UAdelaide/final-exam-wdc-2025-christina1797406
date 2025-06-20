@@ -118,15 +118,6 @@ let db;
         ('harry', 'harry@example.com', 'hashed101', 'owner')
         `);
     }
-    const [rows] = await db.execute(`
-    INSERT IGNORE INTO Users (username, email, password_hash, role)
-        VALUES
-        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-        ('alex', 'alex@example.com', 'hashed100', 'walker'),
-        ('harry', 'harry@example.com', 'hashed101', 'owner');
-    `);
 
     // Insert Dogs
     await db.execute(`
