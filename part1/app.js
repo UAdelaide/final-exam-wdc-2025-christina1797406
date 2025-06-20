@@ -82,38 +82,35 @@ let db;
 // Route 1 ('/api/dogs')
 app.get('/api/dogs', async (req, res) => {
   try {
-    const [rows] = await db.execute('
-    SELECT Dogs.name, Dogs.name, Users.username
-    FROM Dogs INNER JOIN Users WHERE Dogs.owner_id = Users.user_id;');
-
+    const [rows] = await db.execute('SELECT Dogs.name, Dogs.name, Users.username FROM Dogs INNER JOIN Users WHERE Dogs.owner_id = Users.user_id;');
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
   }
 });
 
-// Route 2 ('/api/walkrequests/open')
-app.get('/api/walkrequests/open', async (req, res) => {
-    try {
-      const [rows] = await db.execute('SELECT * FROM Dogs');
+// // Route 2 ('/api/walkrequests/open')
+// app.get('/api/walkrequests/open', async (req, res) => {
+//     try {
+//       const [rows] = await db.execute('SELECT * FROM Dogs');
 
-      res.json(rows);
-    } catch (err) {
-      res.status(500).json({ error: 'Failed to open walk requests' });
-    }
-  });
+//       res.json(rows);
+//     } catch (err) {
+//       res.status(500).json({ error: 'Failed to open walk requests' });
+//     }
+//   });
 
 
-// Route 3 ('/api/walkers/summary')
-app.get('/api/walkers/summary', async (req, res) => {
-    try {
-      const [rows] = await db.execute('SELECT * FROM Dogs');
+// // Route 3 ('/api/walkers/summary')
+// app.get('/api/walkers/summary', async (req, res) => {
+//     try {
+//       const [rows] = await db.execute('SELECT * FROM Dogs');
 
-      res.json(rows);
-    } catch (err) {
-      res.status(500).json({ error: 'Failed to fetch summary of walkers' });
-    }
-  });
+//       res.json(rows);
+//     } catch (err) {
+//       res.status(500).json({ error: 'Failed to fetch summary of walkers' });
+//     }
+//   });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
