@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+const PORT = 8080;
 
 app.use(logger('dev'));
 app.use(express.json());
