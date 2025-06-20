@@ -85,15 +85,15 @@ app.get('/', async (req, res) => {
     const [books] = await db.execute('SELECT * FROM books');
     res.json(books);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
+    res.status(500).json({ error: 'Failed to fetch dogs' });
   }
 });
 
-// Route path ('/api/walkrequests/open')
+// Route 2 ('/api/walkrequests/open')
 
 
 
-// Route path ('/api/walkers/summary')
+// Route 3 ('/api/walkers/summary')
 
 app.use(express.static(path.join(__dirname, 'public')));
 
