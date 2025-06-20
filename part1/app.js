@@ -184,7 +184,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
       WHERE WalkRequests.status = 'open';
       `);
 
-      res.json(rows);
+        res.json(rows);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to open walk requests' });
@@ -208,7 +208,7 @@ app.get('/api/walkers/summary', async (req, res) => {
       res.json(rows);
     } catch (err) {
         console.error(err);
-      res.status(500).json({ error: 'Failed to fetch summary of walkers' });
+        res.status(500).json({ error: 'Failed to fetch summary of walkers' });
     }
   });
 
