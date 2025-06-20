@@ -167,8 +167,8 @@ app.get('/api/dogs', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to fetch dogs' });
+        console.error(err);
+        res.status(500).json({ error: 'Failed to fetch dogs' });
   }
 });
 
@@ -184,7 +184,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
       WHERE WalkRequests.status = 'open';
       `);
 
-        res.json(rows);
+    res.json(rows);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to open walk requests' });
