@@ -133,7 +133,7 @@ let db;
     }
 
     // Insert WalkRequests
-    const [row_request] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    const [row_request] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (row_request[0].count === 0) {
         await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
