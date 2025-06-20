@@ -41,6 +41,8 @@ let db;
       database: 'DogWalkService'
     });
 
+// Create tables
+
 // Insert tables if database is empty
     // Insert Users
     await db.execute(`
