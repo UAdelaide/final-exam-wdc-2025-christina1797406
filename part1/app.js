@@ -178,10 +178,10 @@ app.get('/api/walkrequests/open', async (req, res) => {
       const [rows] = await db.execute(`
       SELECT WalkRequests.request_id, Dogs.name,
       WalkRequests.requested_time, WalkRequests.duration_minutes,
-      WalkRequests.location, Users.username FROM WalkRequests
+      WalkRequests.location, Users.username FROM (( WalkRequests
       INNER JOIN Dogs
       INNER JOIN Users
-      ON 
+      ON
 
       `);
 
