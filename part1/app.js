@@ -105,6 +105,12 @@ let db;
     )
     `);
 
+    await db.execute('DELETE FROM WalkRatings');
+    await db.execute('DELETE FROM WalkApplications');
+    await db.execute('DELETE FROM WalkRequests');
+    await db.execute('DELETE FROM Dogs');
+    await db.execute('DELETE FROM Users');
+
 // Insert tables if database is empty
     // Insert Users
     const [row_user] = await db.execute('SELECT COUNT(*) AS count FROM Users');
