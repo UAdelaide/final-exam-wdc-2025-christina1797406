@@ -79,7 +79,7 @@ let db;
   }
 });
 
-// Route to return books as JSON
+// Route path ('/api/dogs')
 app.get('/', async (req, res) => {
   try {
     const [books] = await db.execute('SELECT * FROM books');
