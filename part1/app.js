@@ -203,9 +203,9 @@ app.get('/api/walkers/summary', async (req, res) => {
       INNER JOIN Users ON Dogs.owner_id = Users.user_id )
       WHERE WalkRequests.status = 'open';
 
-      select count(*) as count from
+      SE
 
-    
+
 
       `);
 
