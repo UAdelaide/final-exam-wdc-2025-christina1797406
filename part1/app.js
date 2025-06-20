@@ -112,9 +112,7 @@ let db;
         await db.execute(`
         IN
         `);
-    } catch (err) {
-        console.error('Error inserting Users data.', err);
-    }
+    } 
     const [rows] = await db.execute(`
     INSERT IGNORE INTO Users (username, email, password_hash, role)
         VALUES
