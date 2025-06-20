@@ -166,7 +166,7 @@ let db;
     catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
-});
+})();
 
 // Route 1 ('/api/dogs')
 app.get('/api/dogs', async (req, res) => {
