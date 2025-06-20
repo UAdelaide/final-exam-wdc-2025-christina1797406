@@ -161,8 +161,8 @@ let db;
         ((SELECT user_id FROM Users WHERE username = 'alice123')),
         ((SELECT user_id FROM Users WHERE username = 'carol123')),
         ((SELECT user_id FROM Users WHERE username = 'alex')),
-        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
-        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
+        ((SELECT user_id FROM Users WHERE username = 'harry')),
+        ((SELECT user_id FROM Users WHERE username = 'bobwalker'))
         `);
     }
     } catch (err) {
