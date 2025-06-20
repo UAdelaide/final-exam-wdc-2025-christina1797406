@@ -41,7 +41,12 @@ let db;
       database: 'DogWalkService'
     });
 
-// Create tables
+// Create tables if it doesn't exist
+    // Users
+
+    // Dogs
+
+    // Walker
 
 // Insert tables if database is empty
     // Insert Users
