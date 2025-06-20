@@ -77,9 +77,10 @@ let db;
     );`);
 
     // WalkApplication
-
+    await db.execute(``)
 
     // WalkRatings
+    await db.execute(``)
 
 // Insert tables if database is empty
     // Insert Users
