@@ -78,7 +78,7 @@ let db;
 // Route 1 ('/api/dogs')
 app.get('/api/dogs', async (req, res) => {
   try {
-    const [rows] = await db.execute('SELECT Dogs.name, Users.username FROM Dogs INNER JOIN Users WHERE Dogs.owner_id = Users.user_id;');
+    const [rows] = await db.execute('SELECT Dogs.name, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;');
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
