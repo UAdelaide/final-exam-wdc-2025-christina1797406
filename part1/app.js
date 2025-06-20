@@ -83,12 +83,12 @@ let db;
     `);
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
-        VALUES     ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted');
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted');
 
     `);
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
-        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open');
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-10 10:00:00', 20, 'Parklands', 'open');
     `);
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
