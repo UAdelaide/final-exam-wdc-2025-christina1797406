@@ -113,7 +113,7 @@ let db;
         IN
         `);
     } catch (err) {
-        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err)
+        console.error('Error inserting Users data.', err);
     }
     const [rows] = await db.execute(`
     INSERT IGNORE INTO Users (username, email, password_hash, role)
