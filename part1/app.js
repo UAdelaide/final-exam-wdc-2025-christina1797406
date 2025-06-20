@@ -210,7 +210,7 @@ app.get('/api/walkers/summary', async (req, res) => {
         ROUND(AVE(WalkRatings.rating_id), 1) AS average_rating,
         (
             SELECT COUNT(*)
-            FROM Walk
+            FROM WalkApplications 
         )
 
 
