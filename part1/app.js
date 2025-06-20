@@ -79,7 +79,7 @@ let db;
 app.get('/api/dogs', async (req, res) => {
   try {
     const [rows] = await db.execute(`
-    SELECT Dogs.name, Users.username FROM Dogs
+    SELECT Dogs.name, Dogs.size, Users.username FROM Dogs
     INNER JOIN Users
     ON Dogs.owner_id = Users.user_id;
     `);
