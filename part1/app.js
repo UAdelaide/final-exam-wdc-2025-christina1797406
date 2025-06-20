@@ -158,11 +158,11 @@ let db;
     if (row_rating[0].count === 0) {
         await db.execute(`
         INSERT INTO WalkRatings (walker_id, rating) VALUES
-        ((SELECT user_id FROM Users WHERE username = 'alice123')),
-        ((SELECT user_id FROM Users WHERE username = 'carol123')),
-        ((SELECT user_id FROM Users WHERE username = 'alex')),
-        ((SELECT user_id FROM Users WHERE username = 'harry')),
-        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
+        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 5),
+        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 1),
+        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'alex'), 3),
+        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 10),
+        ((SELECT walker_id FROM WalkRatings WHERE walker_id = 'bobwalker'), 15)
         `);
     }
     } catch (err) {
