@@ -204,7 +204,8 @@ app.get('/api/walkers/summary', async (req, res) => {
       WHERE WalkRequests.status = 'open';
 
 
-      SELECT Users.username 
+      SELECT Users.username FROM Users
+      INNER JOIN 
       SELECT COUNT(*) AS total_ratings FROM WalkRequests
       SELECT AVE(total_ratings) AS average_rating
 
