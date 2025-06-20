@@ -43,7 +43,7 @@ let db;
 
 // Create tables if it doesn't exist
     // Users
-    await db.execute
+    await db.execute()
 
     // Dogs
 
