@@ -35,7 +35,7 @@ let db;
     });
 
     // Create the database if it doesn't exist
-    await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
+    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
     await connection.end();
 
     // Now connect to the created database
@@ -55,7 +55,7 @@ let db;
       )
     `);
 
-    // Insert data if table is empty
+    // Insert tables if database is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
     if (rows[0].count === 0) {
       await db.execute(`
