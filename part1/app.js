@@ -82,7 +82,7 @@ let db;
 // Route 1 ('/api/dogs')
 app.get('/api/dogs', async (req, res) => {
   try {
-    const [rows] = await db.execute('SELECT Dogs.name, Dogs.name, ');
+    const [rows] = await db.execute('SELECT Dogs.name, Dogs.name, Users.username FROM ');
 
     res.json(rows);
   } catch (err) {
