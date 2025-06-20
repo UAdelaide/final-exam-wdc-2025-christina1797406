@@ -165,7 +165,7 @@ app.get('/api/dogs', async (req, res) => {
         Dogs.name AS dog_name,
         Dogs.size AS size,
         Users.username AS owner_username
-    Dogs.name, Dogs.size, Users.username FROM Dogs
+    FROM Dogs
     INNER JOIN Users
     ON Dogs.owner_id = Users.user_id;
     `);
