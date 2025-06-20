@@ -80,9 +80,9 @@ let db;
 });
 
 // Route 1 ('/api/dogs')
-app.get('/', async (req, res) => {
+app.get('/api/dogs', async (req, res) => {
   try {
-    const [books] = await db.execute('SELECT * FROM books');
+    const [rows] = await db.execute('SELECT * FROM Dogs');
     res.json(books);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
