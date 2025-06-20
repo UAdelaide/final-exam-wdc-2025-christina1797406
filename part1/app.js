@@ -131,6 +131,12 @@ let db;
         ('harry', 'harry@example.com', 'hashed101', 'owner')
         `);
     }
+
+
+    VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123'))
+
+
+    
     // Insert Dogs
     await db.execute(`
     INSERT IGNORE INTO Dogs (name, size, owner_id)
