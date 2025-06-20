@@ -57,7 +57,8 @@ let db;
         name VARCHAR(50) NOT NULL,
         size ENUM('small', 'medium', 'large') NOT NULL,
         FOREIGN KEY (owner_id) REFERENCES Users(user_id)
-    );`);
+    )
+    `);
 
     // WalkRequests
     await db.execute(`
@@ -70,7 +71,8 @@ let db;
         status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',Add commentMore actions
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
-    );`);
+    )
+    `);
 
     // WalkApplication
     await db.execute(`
@@ -83,7 +85,8 @@ let db;
         FOREIGN KEY (request_id) REFERENCES WalkRequests(request_id),
         FOREIGN KEY (walker_id) REFERENCES Users(user_id),
         CONSTRAINT unique_application UNIQUE (request_id, walker_id)
-    );`);
+    )
+    `);
 
     // WalkRatings
     await db.execute(`
@@ -99,7 +102,8 @@ let db;
         FOREIGN KEY (walker_id) REFERENCES Users(user_id),
         FOREIGN KEY (owner_id) REFERENCES Users(user_id),
         CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
-    );`);
+    )
+    `);
 
 // Insert tables if database is empty
     // Insert Users
