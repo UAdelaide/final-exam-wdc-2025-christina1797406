@@ -105,6 +105,7 @@ let db;
     )
     `);
 
+    // To reset database after each testing
     await db.execute('DELETE FROM WalkRatings');
     await db.execute('DELETE FROM WalkApplications');
     await db.execute('DELETE FROM WalkRequests');
