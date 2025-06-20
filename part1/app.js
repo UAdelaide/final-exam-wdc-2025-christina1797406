@@ -152,6 +152,19 @@ let db;
         `);
         }
     }
+
+    // Insert Dogs
+    const [row_dog] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (row_dog[0].count === 0) {
+        await db.execute(`
+        INSERT INTO Dogs (name, size, owner_id) VALUES
+        ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
+        ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
+        ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
+        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
+        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
+        `);
+    }
     catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
