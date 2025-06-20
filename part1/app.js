@@ -55,12 +55,7 @@ let db;
 
     await db.execute(`
     INSERT IGNORE INTO Dogs (name, size, owner_id)
-        VALUES
-        ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
-        ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
-        ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
-        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
-        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'));
+    VALUES ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
     `);
 
     await db.execute(`
