@@ -67,11 +67,11 @@ let db;
 
     await db.execute(`
     INSERT IGNORE INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
-        VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-        VALUES ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-        VALUES ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-        VALUES ('alex', 'alex@example.com', 'hashed100', 'walker'),
-        VALUES ('harry', 'harry@example.com', 'hashed101', 'owner');
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-10 10:00:00', 20, 'Parklands', 'open'),
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Happy'), '2025-06-10 10:30:00', 30, 'Ascot Park', 'cancelled'),
+        VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-10 10:45:00', 40, 'Ascot Park', 'cancelled');
     `);
 
 
