@@ -79,7 +79,7 @@ let db;
   }
 });
 
-// Route path ('/api/dogs')
+// Route 1 ('/api/dogs')
 app.get('/', async (req, res) => {
   try {
     const [books] = await db.execute('SELECT * FROM books');
