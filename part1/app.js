@@ -21,7 +21,6 @@ app.use('/users', usersRouter);
 app.use('/api', dogsRouter);
 
 let db;
-
 (async () => {
   try {
     // Connect to MySQL without specifying a database
