@@ -202,11 +202,12 @@ app.get('/api/walkers/summary', async (req, res) => {
       INNER JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id )
       INNER JOIN Users ON Dogs.owner_id = Users.user_id )
       WHERE WalkRequests.status = 'open';
-      
+
       `);
 
       res.json(rows);
     } catch (err) {
+        console.error(err);
       res.status(500).json({ error: 'Failed to fetch summary of walkers' });
     }
   });
