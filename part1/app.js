@@ -56,7 +56,25 @@ let db;
         VALUES ('harry', 'harry@example.com', 'hashed101', 'owner');
     `);
 
-    
+    await db.execute(`
+    INSERT IGNORE INTO Dogs (name, size, owner_id)
+        VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+        VALUES ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+        VALUES ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+        VALUES ('alex', 'alex@example.com', 'hashed100', 'walker'),
+        VALUES ('harry', 'harry@example.com', 'hashed101', 'owner');
+    `);
+
+    await db.execute(`
+    INSERT IGNORE INTO Users (username, email, password_hash, role)
+        VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+        VALUES ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+        VALUES ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+        VALUES ('alex', 'alex@example.com', 'hashed100', 'walker'),
+        VALUES ('harry', 'harry@example.com', 'hashed101', 'owner');
+    `);
+
+
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
     if (rows[0].count === 0) {
       await db.execute(`
