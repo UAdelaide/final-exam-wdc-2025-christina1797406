@@ -89,6 +89,10 @@ app.get('/', async (req, res) => {
   }
 });
 
+// Route path ('/api/walkrequests/open')
+
+// Route path ('/api/walkers/summary')
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
