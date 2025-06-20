@@ -137,11 +137,11 @@ let db;
     if (row_request[0].count === 0) {
         await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
-        ('Max', 'medium', (SELECT user_id FROM Users WHERE username = 'alice123')),
-        ('Bella', 'small', (SELECT user_id FROM Users WHERE username = 'carol123')),
-        ('Charlie', 'large', (SELECT user_id FROM Users WHERE username = 'alex')),
-        ('Happy', 'large', (SELECT user_id FROM Users WHERE username = 'harry')),
-        ('Rocky', 'medium', (SELECT user_id FROM Users WHERE username = 'bobwalker'))
+        ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Charlie'), '2025-06-10 10:00:00', 20, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Happy'), '2025-06-10 10:30:00', 30, 'Ascot Park', 'cancelled'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Rocky'), '2025-06-10 10:45:00', 40, 'Ascot Park', 'cancelled')
         `);
         }
     }
