@@ -94,8 +94,13 @@
         },
         async loadDogs() {
           try {
-            
-          }
+          const res = await fetch('/api/dogs');  // Adjust endpoint if different
+          if (!res.ok) throw new Error('Failed to fetch dogs');
+          this.dogs = await res.json();
+        } catch (err) {
+          this.error = 'Failed to load dogs';
+          console.error(err);
+        }
         }
       }
     }).mount('#app');
