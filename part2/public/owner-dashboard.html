@@ -10,7 +10,7 @@
 <body class="bg-light">
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-primary">Owner Dashboard</h1>
-    
+
   <!-- Add Logout Button -->
   <button type="button" id="logoutBtn" class="btn btn-danger" @click="handleLogout">Logout</button>
 
@@ -132,6 +132,20 @@
           } catch (err) {
             error.value = err.message;
             message.value = '';
+          }
+        }
+
+        async function handleLogout() {
+          try {
+            const res = await fetch('/api/users/logout', { method: 'POST' });
+            if (res.ok) {
+              window.location.href = 'index.html';
+            } else {
+              alert('Logout failed');
+            }
+          } catch (err) {
+            console.error('Logout error:', err);
+            alert('Logout error');
           }
         }
 
