@@ -26,7 +26,7 @@
         <button type="button" @click="showDog++">Click to see dog images</button>
 
         <div v-if="showDog = 1">
-            <img src="dogImage" style="border: 15px greenyellow" alt="Dog image missing">
+            <img :src="dogImage" style="border: 15px greenyellow">
 
         </div>
 
