@@ -90,13 +90,13 @@
               return;
             }
 
-            // Verify user's role to redirect to 
+            // Verify user's role to redirect to correct webpage
             if (data.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else if (data.role === 'walker') {
               window.location.href = 'walker-dashboard.html'
             } else {
-              this.error = 'Unknown role';
+              this.error = 'Unknown role'; // Error handling
             }
           } catch (err) {
             console.error(err);
