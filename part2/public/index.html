@@ -54,7 +54,10 @@
             // Error handling
             if (!response.ok) {
               this.error = data.error || 'Login failed';
+              return;
             }
+
+            if (data.role === 'owner')
           }
         }
       }
