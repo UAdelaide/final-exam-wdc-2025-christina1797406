@@ -145,7 +145,6 @@
             }
           } catch (err) {
             console.error('Logout error:', err);
-            alert('Logout error');
           }
         }
 
@@ -160,7 +159,8 @@
           dogs,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          handleLogout
         };
       }
     }).mount('#app');
