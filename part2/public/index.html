@@ -39,6 +39,7 @@
             <th>Name</th>
             <th>Size</th>
             <th>Owner ID</th>
+            <th>Photo</th>
           </tr>
         </thead>
         <tbody>
@@ -47,6 +48,9 @@
             <td>{{ dog.name }}</td>
             <td>{{ dog.size }}</td>
             <td>{{ dog.owner_id }}</td>
+            <td>
+              <img v-if="dog.photo" :src="dog.photo" alt="Dog Photo" width="40" height="40" class="rounded">
+            </td>
           </tr>
         </tbody>
       </table>
