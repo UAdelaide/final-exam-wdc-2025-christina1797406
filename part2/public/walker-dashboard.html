@@ -74,8 +74,10 @@
           try {
             // Get current user from getCurrentUser()
             const user = await getCurrentUser();
-            requestId = user.id;
-            
+            if (!user) {
+              error.value = 'Log in first'
+            }
+
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
