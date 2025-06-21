@@ -49,11 +49,13 @@
         createApp({
             data() {
                 return {
-                    dogImage: ''
+                    dogImage: '',
+                    click: 0
                 };
             },
             methods: {
                 async fetchDog() {
+                    if (this.click <)
                     try {
                         const res = await fetch('https://dog.ceo/api/breeds/image/random');
                         const data = await res.json();
