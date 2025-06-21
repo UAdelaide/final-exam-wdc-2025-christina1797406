@@ -62,7 +62,10 @@
         async function getCurrentUser() {
           try {
             const res = await fetch('/api/users/me');
-            const
+            const user = await res.json();
+            return user;
+          } catch (err) {
+            c
           }
         }
 
