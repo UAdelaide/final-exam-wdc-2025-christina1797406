@@ -36,6 +36,7 @@
       <h3 class="mb-3 mt-5">All Registered Dogs</h3>
       <!-- Insert table -->
       <table class="table table-striped mt-3">
+        <!-- Insert headers -->
         <thead class="table-light">
           <tr>
             <th>Dog ID</th>
@@ -45,7 +46,7 @@
             <th>Photo</th>
           </tr>
         </thead>
-        <!--  -->
+        <!-- Insert info rows -->
         <tbody>
           <tr v-for="dog in dogs" :key="dog.dog_id">
             <td>{{ dog.dog_id }}</td>
