@@ -105,6 +105,7 @@
             console.error(err);
           }
         },
+        // Function to load all dogs' info in database
         async loadDogs() {
           try {
             const res = await fetch('/api/walks/all-dogs');
