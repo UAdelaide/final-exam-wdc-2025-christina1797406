@@ -51,6 +51,7 @@
             });
 
             const data = await response.json();
+
             // Error handling
             if (!response.ok) {
               this.error = data.error || 'Login failed';
@@ -65,6 +66,7 @@
               this.error = 'Unknown role';
             }
           } catch (err) {
+            console.error(err);
           }
         }
       }
