@@ -103,7 +103,7 @@
             const res = await fetch('/api/walks/all-dogs');
             this.dogs = await res.json();
 
-            //
+            // Include randomly generated dog photos
             const dogsWithPhotos = await Promise.all(
             dogsData.map(async dog => {
               try {
