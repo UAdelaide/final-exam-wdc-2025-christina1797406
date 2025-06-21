@@ -55,7 +55,10 @@
             },
             methods: {
                 async fetchDog() {
-                    if (this.click < 1) 
+                    if (this.click < 1) {
+                        alert('Click again to see dog images!');
+                        return
+                    }
                     try {
                         const res = await fetch('https://dog.ceo/api/breeds/image/random');
                         const data = await res.json();
