@@ -33,8 +33,19 @@
     <div class="mb-5">
       <h3>All Registered Dogs</h3>
       <ul class="list-group">
-        <li v-for="dog in dogs" :key="dog.dog_id" class="list-group-item">
-          {{ dog.name }} — Size: {{ dog.size }}
+        <li v-for="dog in dogs" :key="dog.dog_id" class="list-group-item d-flex align-items-center">
+          <img
+            :src="dog.photo"
+            alt="Dog photo"
+            class="me-3"
+            style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
+          />
+          <div>
+            <strong>ID:</strong> {{ dog.dog_id }}<br>
+            <strong>Name:</strong> {{ dog.name }}<br>
+            <strong>Size:</strong> {{ dog.size }}<br>
+            <strong>Owner ID:</strong> {{ dog.owner_id }}
+          </div>
         </li>
       </ul>
     </div>
