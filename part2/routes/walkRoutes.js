@@ -63,7 +63,7 @@ router.post('/:id/apply', async (req, res) => {
 router.get('/all-dogs', async (req, res) => {
   try {
     const [rows] = await db.query(`
-      SELECT dog_id, name, size, owner_id, photo
+      SELECT dog_id, name, size, owner_id
       FROM Dogs
     `);
     res.json(rows);
