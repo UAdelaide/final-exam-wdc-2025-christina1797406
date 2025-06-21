@@ -12,7 +12,7 @@ app.use(session({
     secret: 'helloworld',
     resave: false,
     saveUninitialized: false,
-    cookie: {secure: false},
+    cookie: {secure: false}, // Add cookie and initialise name
     name: 'connect.side'
 }));
 
