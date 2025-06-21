@@ -40,6 +40,16 @@
           password: '',
           error: ''
         };
+      },
+      methods: {
+        async handleLogin() {
+          try {
+            const res = await fetch('/api/login', {
+              methods: 'POST',
+              headers: {}
+            })
+          }
+        }
       }
     }).mount('#app');
   </script>
