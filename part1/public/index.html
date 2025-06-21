@@ -23,9 +23,9 @@
         <h1>Welcome</h1>
 
         <p>Dog images</p>
-        <button type="button" @click="showDog++">Click to see dog images</button>
+        <button type="button" @click="fetchDog">Click to see dog images</button>
 
-        <div v-if="showDog = 1">
+        <div v-if="dogImage>
             <img v-bind:src="dogImage" style="max-width: 300px; border: 15px greenyellow;">
             <p>Do you see the images?</p>
         </div>
