@@ -11,7 +11,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
     secret: 'helloworld',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {secure: false},
+    name: 'connect.side'
 }));
 
 // Routes
