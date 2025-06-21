@@ -102,6 +102,8 @@
           try {
             const res = await fetch('/api/walks/all-dogs');
             this.dogs = await res.json();
+
+            
           } catch (err) {
             this.error = 'Failed to load dogs';
           }
