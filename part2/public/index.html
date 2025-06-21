@@ -94,7 +94,7 @@
         },
         async loadDogs() {
           try {
-          const res = await fetch('/api/dogs'); 
+          const res = await fetch('/api/walks/all-dogs');
           if (!res.ok) throw new Error('Failed to fetch dogs');
           this.dogs = await res.json();
         } catch (err) {
