@@ -90,6 +90,7 @@
               return;
             }
 
+            // Verify user's role to redirect to 
             if (data.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else if (data.role === 'walker') {
