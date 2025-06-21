@@ -102,7 +102,9 @@
           console.error(err);
           }
         },
-        
+        mounted() {
+          this.loadDogs();
+        }
       }
     }).mount('#app');
   </script>
