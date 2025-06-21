@@ -109,7 +109,7 @@
         async loadDogs() {
           try {
             const res = await fetch('/api/walks/all-dogs');
-            const dogsData = await res.json();  // Save the response here
+            const dogsData = await res.json(); 
 
             // Include randomly generated dog photos
             const dogsWithPhotos = await Promise.all(
