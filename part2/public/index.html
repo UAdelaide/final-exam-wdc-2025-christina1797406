@@ -53,7 +53,7 @@
             <td>{{ dog.name }}</td>
             <td>{{ dog.size }}</td>
             <td>{{ dog.owner_id }}</td>
-            <!-- Adding  -->
+            <!-- Adding randomly generated dog images from 'https://dog.ceo/api/breeds/image/random'-->
             <td>
               <img v-if="dog.photo" :src="dog.photo" alt="Dog Photo" width="80" height="60">
             </td>
