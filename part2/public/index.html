@@ -59,7 +59,7 @@
             const data = await res.json();
 
             // Error handling
-            if (!response.ok) {
+            if (!res.ok) {
               this.error = data.error || 'Login failed';
               return;
             }
