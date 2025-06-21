@@ -46,9 +46,12 @@
                         const data = await res.json();
                         this.dogImage = data.message;
                     } catch(err) {
-                        console.error('Issue with fetching dog image')
+                        console.error('Issue with fetching dog image:', err);
                     }
                 }
+            },
+            mounted() {
+                this.fetchDog
             }
         })
     </script>
