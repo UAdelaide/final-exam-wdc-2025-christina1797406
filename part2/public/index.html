@@ -15,12 +15,13 @@
     <!-- Add form to handle login -->
     <form @submit.prevent="handleLogin">
       <div class="mb-3">
-        
+        <!-- Username input -->
         <label for="username" class="form-label">Username</label>
         <input v-model="username" type="text" id="username" class="form-control" required>
       </div>
 
       <div class="mb-3">
+        <!-- Password input -->
         <label for="password" class="form-label">Password</label>
         <input v-model="password" type="password" id="password" class="form-control" required>
       </div>
