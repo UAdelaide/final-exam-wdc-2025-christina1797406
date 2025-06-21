@@ -102,7 +102,7 @@
             const res = await fetch('/api/my-dogs');
             dogs.value = await res.json();
           } catch (err) {
-            error.value = 'Failed to load walk requests';
+            error.value = 'Failed to load dogs';
           }
         }
 
