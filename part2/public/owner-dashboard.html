@@ -99,7 +99,7 @@
         // Function to load owner's dogs
         async function loadDogs() {
           try {
-            const res = await fetch('/api/my-dogs');
+            const res = await fetch('/api/walks/my-dogs');
             dogs.value = await res.json();
           } catch (err) {
             error.value = 'Failed to load dogs';
