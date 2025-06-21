@@ -35,13 +35,12 @@
     <div id="app" class="container">
         <h1>Welcome to dOG World !</h1>
 
-        <p>Dog images</p>
+        <p>Do you see the images?</p>
         <button type="button" @click="click++">Click to see dog images</button>
         <button type="button" @click="fetchDog">Click to see dog images</button>
 
         <div v-if="dogImage">
             <img :src="dogImage" style="max-width: 300px; border: 15px greenyellow;" >
-            <p>Do you see the images?</p>
         </div>
     </div>
 
