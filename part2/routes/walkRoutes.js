@@ -59,7 +59,19 @@ router.post('/:id/apply', async (req, res) => {
   }
 });
 
-
+// GET list of all dogs
+router.get('/all-dogs', async (req, res) => {
+  try {
+    const [rows] = await db.query(`
+      SELECT dog_id, name, size, owner_id, photo
+      FROM Dogs
+    `);
+    res.json(rows);
+  } catch (error) {
+    console.error('SQL Error:', error);
+    res.status(500).json({ error: 'Failed to fetch all dogs' });
+  }
+});
 
 // GET list of owner's dogs
 router.get('/my-dogs', async (req, res) => {
