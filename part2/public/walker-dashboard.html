@@ -75,7 +75,8 @@
             // Get current user from getCurrentUser()
             const user = await getCurrentUser();
             if (!user) {
-              error.value = 'Log in first'
+              error.value = 'Log in first.';
+              return;
             }
 
             const res = await fetch(`/api/walks/${requestId}/apply`, {
