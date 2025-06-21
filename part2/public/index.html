@@ -51,7 +51,10 @@
             });
 
             const data = await response.json();
-            if (!resp)
+            
+            if (!response.ok) {
+              this.error = data.error || 'Login failed';
+            }
           }
         }
       }
