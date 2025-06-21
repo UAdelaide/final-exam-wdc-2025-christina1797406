@@ -103,8 +103,22 @@
             const res = await fetch('/api/walks/all-dogs');
             this.dogs = await res.json();
 
-            
-          } catch (err) {
+            //
+            const dogsWithPhotos = await Promise.all(
+            dogsData.map(async dog => {
+              try {
+                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                const imgData = await imgRes.json();
+                dog.photo = imgData.message;
+              } catch {
+                dog.photo = '';
+              }
+              return dog;
+            })
+          );
+
+          this.dogs = dogsWithPhotos;
+        } catch (err) {
             this.error = 'Failed to load dogs';
           }
         }
