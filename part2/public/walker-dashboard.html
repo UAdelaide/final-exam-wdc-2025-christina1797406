@@ -75,6 +75,7 @@
             // Get current user from getCurrentUser()
             const user = await getCurrentUser();
             requestId = user.id;
+            
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
